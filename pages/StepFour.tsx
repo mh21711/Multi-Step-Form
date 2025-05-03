@@ -26,16 +26,18 @@ function StepFour({ step, setStep, time, plan, addons }: StepFourProps) {
   };
 
   useEffect(() => {
-    const planCost = planPrices[plan]?.[time === "monthly" ? "monthly" : "yearly"] || 0;
+    const planCost =
+      planPrices[plan]?.[time === "monthly" ? "monthly" : "yearly"] || 0;
     const addonsCost = addons.reduce((sum, addon) => {
-      const addonCost = addonPrices[addon]?.[time === "monthly" ? "monthly" : "yearly"] || 0;
+      const addonCost =
+        addonPrices[addon]?.[time === "monthly" ? "monthly" : "yearly"] || 0;
       return sum + addonCost;
     }, 0);
 
     setTotal(planCost + addonsCost);
   }, [plan, time, addons]);
 
-  console.log(total)
+  console.log(total);
 
   function ClickFunction() {
     setStep(5);
@@ -54,7 +56,7 @@ function StepFour({ step, setStep, time, plan, addons }: StepFourProps) {
           <div>
             <div>
               <p className="bold">
-                {plan} ({time.toUpperCase()})
+                {plan} ({typeof time === "string" ? time.toUpperCase() : ""})
               </p>
               <p onClick={() => setStep(2)}>Change</p>
             </div>
@@ -78,19 +80,19 @@ function StepFour({ step, setStep, time, plan, addons }: StepFourProps) {
           </div>
           {time === "monthly" ? (
             <>
-              {addons.includes("storage") && (
+              {addons?.includes("storage") && (
                 <div>
                   <p>Larger Storage</p>
                   <p>+$2/mo</p>
                 </div>
               )}
-              {addons.includes("online") && (
+              {addons?.includes("online") && (
                 <div>
                   <p>Online Services</p>
                   <p>+$1/mo</p>
                 </div>
               )}
-              {addons.includes("profile") && (
+              {addons?.includes("profile") && (
                 <div>
                   <p>Customizable Profile</p>
                   <p>+$2/mo</p>
@@ -99,19 +101,19 @@ function StepFour({ step, setStep, time, plan, addons }: StepFourProps) {
             </>
           ) : (
             <>
-              {addons.includes("storage") && (
+              {addons?.includes("storage") && (
                 <div>
                   <p>Larger Storage</p>
                   <p>+$20/yr</p>
                 </div>
               )}
-              {addons.includes("online") && (
+              {addons?.includes("online") && (
                 <div>
                   <p>Online Services</p>
                   <p>+$10/yr</p>
                 </div>
               )}
-              {addons.includes("profile") && (
+              {addons?.includes("profile") && (
                 <div>
                   <p>Customizable Profile</p>
                   <p>+$20/yr</p>

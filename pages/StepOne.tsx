@@ -24,7 +24,7 @@ function StepOne({
   const [submit, setSubmit] = useState<boolean>(false);
 
   function isValidEmail(email: string) {
-    return email.includes("@");
+    return email?.includes("@");
   }
 
   function isValidNumber(input: string) {

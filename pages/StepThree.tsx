@@ -25,7 +25,7 @@ function StepThree({
 
   // 🔁 Handle checkbox toggle
   function handleCheckboxChange(value: string) {
-    if (addones.includes(value)) {
+    if (addones?.includes(value)) {
       setAddOnes((prev) => prev.filter((item) => item !== value));
     } else {
       setAddOnes((prev) => [...prev, value]);
@@ -38,12 +38,12 @@ function StepThree({
       <p>Add-ons helps enhance your gaming experience.</p>
       <div className="add-ons">
         <label
-          className={addones.includes("online") ? "check active" : "check"}
+          className={addones?.includes("online") ? "check active" : "check"}
           htmlFor="online"
         >
           <div>
             <div className="checkbox">
-              {addones.includes("online") ? (
+              {addones?.includes("online") ? (
                 <Image
                   src="/images/icon-checkmark.svg"
                   width={10}
@@ -63,18 +63,18 @@ function StepThree({
         </label>
         <input
           type="checkbox"
-          checked={addones.includes("online")}
+          checked={addones?.includes("online")}
           onChange={() => handleCheckboxChange("online")}
           id="online"
         />
 
         <label
-          className={addones.includes("storage") ? "check active" : "check"}
+          className={addones?.includes("storage") ? "check active" : "check"}
           htmlFor="storage"
         >
           <div>
             <div className="checkbox">
-              {addones.includes("storage") ? (
+              {addones?.includes("storage") ? (
                 <Image
                   src="/images/icon-checkmark.svg"
                   width={10}
@@ -94,18 +94,18 @@ function StepThree({
         </label>
         <input
           type="checkbox"
-          checked={addones.includes("storage")}
+          checked={addones?.includes("storage")}
           onChange={() => handleCheckboxChange("storage")}
           id="storage"
         />
 
         <label
-          className={addones.includes("profile") ? "check active" : "check"}
+          className={addones?.includes("profile") ? "check active" : "check"}
           htmlFor="profile"
         >
           <div>
             <div className="checkbox">
-              {addones.includes("profile") ? (
+              {addones?.includes("profile") ? (
                 <Image
                   src="/images/icon-checkmark.svg"
                   width={10}
@@ -125,7 +125,7 @@ function StepThree({
         </label>
         <input
           type="checkbox"
-          checked={addones.includes("profile")}
+          checked={addones?.includes("profile")}
           onChange={() => handleCheckboxChange("profile")}
           id="profile"
         />
